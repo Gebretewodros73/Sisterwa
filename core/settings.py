@@ -187,6 +187,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT = env_flag('SECURE_SSL_REDIRECT', default=True)
+    SECURE_SSL_REDIRECT = env_flag('SECURE_SSL_REDIRECT', default=False if RAILWAY_ENVIRONMENT else True)
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
