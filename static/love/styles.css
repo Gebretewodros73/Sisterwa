@@ -1,0 +1,579 @@
+:root {
+  --olive: #6b7a2c;
+  --olive-deep: #2f4420;
+  --gold: #d3ab52;
+  --gold-soft: #f1ddad;
+  --ivory: #faf3e4;
+  --sand: #ead9b8;
+  --clay: #9d6f2c;
+  --ink: #2d2416;
+  --panel: rgba(250, 244, 228, 0.82);
+  --shadow: 0 28px 60px rgba(70, 55, 20, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: var(--ink);
+  font-family: "Noto Serif", serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 245, 212, 0.95), transparent 28%),
+    linear-gradient(180deg, #fff9ea 0%, #f4e7c8 44%, #dcc58a 100%);
+}
+
+.sky-glow {
+  position: fixed;
+  z-index: 0;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.48;
+}
+
+.sky-glow-left {
+  top: -11rem;
+  left: -10rem;
+  background: rgba(252, 241, 182, 0.95);
+}
+
+.sky-glow-right {
+  top: 8rem;
+  right: -10rem;
+  background: rgba(190, 204, 126, 0.72);
+}
+
+.gift-card {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1.5rem auto;
+  padding: 2rem;
+  border-radius: 36px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 240, 0.92), rgba(245, 234, 204, 0.76));
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 2rem 1rem 1.3rem;
+  text-align: center;
+}
+
+.eyebrow,
+.holiday-mark,
+.letter-intro,
+.card-label,
+.altar-label,
+.music-note p,
+.promise span {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.holiday-mark,
+.letter-intro,
+.card-label,
+.music-note p,
+.promise span {
+  color: var(--clay);
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+}
+
+.holiday-mark {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--olive);
+}
+
+h1 {
+  margin: 1rem 0 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  line-height: 0.96;
+  color: var(--olive-deep);
+}
+
+.lead {
+  width: min(760px, 100%);
+  margin: 1.5rem auto 0;
+  font-size: clamp(1.12rem, 2.2vw, 1.45rem);
+  line-height: 1.7;
+}
+
+.reveal-button {
+  margin-top: 1.8rem;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.7rem;
+  font-family: "Marcellus", serif;
+  font-size: 1rem;
+  color: #fffdf5;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--olive-deep), var(--olive));
+  box-shadow: 0 14px 28px rgba(47, 68, 32, 0.24);
+}
+
+.reveal-button:hover {
+  transform: translateY(-1px);
+}
+
+.palm-altar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 234, 0.95), rgba(238, 225, 182, 0.88));
+}
+
+.sun-disc {
+  position: absolute;
+  top: 2.2rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff6c9 0%, rgba(211, 171, 82, 0.94) 68%, rgba(211, 171, 82, 0.2) 100%);
+  box-shadow: 0 0 36px rgba(211, 171, 82, 0.28);
+}
+
+.cross {
+  position: absolute;
+  top: 5rem;
+  width: 16px;
+  height: 152px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d0a652, #8f6928);
+}
+
+.cross::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -32px;
+  width: 80px;
+  height: 14px;
+  border-radius: 999px;
+  background: inherit;
+}
+
+.cross-left {
+  left: calc(50% - 138px);
+}
+
+.cross-right {
+  right: calc(50% - 138px);
+}
+
+.palm {
+  position: absolute;
+  bottom: 1.2rem;
+  width: 170px;
+  height: 230px;
+}
+
+.palm::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 8px;
+  height: 200px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #7c8d32, #3f561f);
+}
+
+.palm span {
+  position: absolute;
+  left: 50%;
+  bottom: 66px;
+  width: 110px;
+  height: 28px;
+  transform-origin: left center;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, rgba(133, 155, 57, 0.1), #789138 38%, #4c6727 100%);
+}
+
+.palm span:nth-child(1) { transform: rotate(-66deg); }
+.palm span:nth-child(2) { transform: rotate(-34deg); }
+.palm span:nth-child(3) { transform: rotate(-6deg); }
+.palm span:nth-child(4) { transform: rotate(22deg); }
+.palm span:nth-child(5) { transform: rotate(48deg); }
+
+.palm-left {
+  left: calc(50% - 290px);
+  transform: rotate(-12deg);
+}
+
+.palm-right {
+  right: calc(50% - 290px);
+  transform: scaleX(-1) rotate(-12deg);
+}
+
+.altar-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 9.8rem;
+}
+
+.altar-label {
+  margin: 0;
+  font-family: "Marcellus", serif;
+  font-size: 1rem;
+  color: var(--clay);
+}
+
+.altar-text strong {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--olive-deep);
+}
+
+.blessing-grid,
+.promise-strip,
+.memory-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.blessing-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.4rem;
+}
+
+.blessing-card,
+.letter-panel,
+.music-note,
+.promise,
+.memory-card {
+  border-radius: 26px;
+  background: rgba(255, 252, 242, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(159, 122, 44, 0.12), 0 14px 30px rgba(99, 75, 24, 0.08);
+}
+
+.blessing-card {
+  padding: 1.25rem;
+}
+
+.card-label {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.blessing-card strong {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: "Marcellus", serif;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--olive-deep);
+}
+
+.blessing-card span {
+  display: block;
+  margin-top: 0.65rem;
+  line-height: 1.6;
+}
+
+.letter-panel {
+  width: min(800px, 100%);
+  margin: 1.6rem auto 0;
+  padding: 1.8rem;
+  font-size: clamp(1.12rem, 2vw, 1.34rem);
+  line-height: 1.78;
+}
+
+.letter-intro {
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.signature {
+  margin-bottom: 0.2rem;
+  font-family: "Marcellus", serif;
+  font-size: 1.45rem;
+  color: var(--olive-deep);
+}
+
+.memory-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.memory-card {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.memory-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(28, 22, 10, 0.74));
+}
+
+.memory-caption {
+  position: absolute;
+  z-index: 1;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  color: #fff8e9;
+  font-family: "Marcellus", serif;
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+.music-note {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.2rem;
+  text-align: center;
+}
+
+.music-note p {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+}
+
+.music-note strong {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.promise-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.4rem;
+}
+
+.promise {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.promise span {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.promise strong {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: "Marcellus", serif;
+  font-size: 1.28rem;
+  color: var(--olive-deep);
+}
+
+.floating-leaves {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.floating-leaves .leaf {
+  position: absolute;
+  top: -10%;
+  width: 18px;
+  height: 44px;
+  opacity: 0.74;
+  border-radius: 60% 0 60% 0;
+  background: linear-gradient(180deg, #b7cd6a, #5b7428);
+  animation: drift linear infinite;
+}
+
+.leaf-1 { left: 6%; animation-duration: 14s; animation-delay: 0s; }
+.leaf-2 { left: 18%; animation-duration: 12s; animation-delay: 2.4s; }
+.leaf-3 { left: 33%; animation-duration: 16s; animation-delay: 1.2s; }
+.leaf-4 { left: 48%; animation-duration: 11s; animation-delay: 3.4s; }
+.leaf-5 { left: 62%; animation-duration: 15s; animation-delay: 5s; }
+.leaf-6 { left: 75%; animation-duration: 13s; animation-delay: 1.4s; }
+.leaf-7 { left: 88%; animation-duration: 17s; animation-delay: 4.2s; }
+.leaf-8 { left: 95%; animation-duration: 12.5s; animation-delay: 2s; }
+
+.blessing-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.burst-leaf {
+  position: absolute;
+  width: 18px;
+  height: 40px;
+  border-radius: 60% 0 60% 0;
+  background: linear-gradient(180deg, #c8dc73, #64812a);
+  animation: rise 1500ms ease-out forwards;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate3d(-54px, 110vh, 0) rotate(230deg);
+  }
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.35) rotate(0deg);
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-190px) scale(1.2) rotate(190deg);
+  }
+}
+
+@media (max-width: 920px) {
+  .blessing-grid,
+  .memory-gallery,
+  .promise-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .cross-left {
+    left: calc(50% - 108px);
+  }
+
+  .cross-right {
+    right: calc(50% - 108px);
+  }
+
+  .palm-left {
+    left: calc(50% - 220px);
+  }
+
+  .palm-right {
+    right: calc(50% - 220px);
+  }
+}
+
+@media (max-width: 700px) {
+  .gift-card {
+    padding: 1.2rem;
+  }
+
+  .hero {
+    padding-top: 1.2rem;
+  }
+
+  .palm-altar {
+    min-height: 300px;
+  }
+
+  .cross {
+    top: 4.8rem;
+    height: 118px;
+  }
+
+  .cross::before {
+    top: 22px;
+    left: -24px;
+    width: 64px;
+  }
+
+  .cross-left {
+    left: 2rem;
+  }
+
+  .cross-right {
+    right: 2rem;
+  }
+
+  .palm {
+    width: 120px;
+    height: 180px;
+  }
+
+  .palm::before {
+    height: 150px;
+  }
+
+  .palm span {
+    width: 74px;
+    height: 22px;
+  }
+
+  .palm-left {
+    left: 1rem;
+  }
+
+  .palm-right {
+    right: 1rem;
+  }
+
+  .altar-text {
+    padding: 8.8rem 1rem 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .gift-card {
+    width: min(100% - 1rem, 100%);
+    margin: 0.5rem auto;
+    border-radius: 26px;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 12vw, 3.4rem);
+  }
+
+  .lead,
+  .letter-panel {
+    font-size: 1.03rem;
+  }
+
+  .blessing-card,
+  .letter-panel,
+  .promise,
+  .music-note,
+  .memory-card {
+    border-radius: 20px;
+  }
+
+  .memory-card {
+    min-height: 250px;
+  }
+}

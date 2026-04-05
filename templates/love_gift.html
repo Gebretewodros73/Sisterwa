@@ -1,0 +1,140 @@
+{% load static %}
+{% now "YmdHis" as asset_version %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hosaena for Nitsty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Noto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'love/styles.css' %}">
+</head>
+<body>
+  <div class="sky-glow sky-glow-left"></div>
+  <div class="sky-glow sky-glow-right"></div>
+  <div class="floating-leaves" aria-hidden="true">
+    <span class="leaf leaf-1"></span>
+    <span class="leaf leaf-2"></span>
+    <span class="leaf leaf-3"></span>
+    <span class="leaf leaf-4"></span>
+    <span class="leaf leaf-5"></span>
+    <span class="leaf leaf-6"></span>
+    <span class="leaf leaf-7"></span>
+    <span class="leaf leaf-8"></span>
+  </div>
+
+  <main class="gift-card">
+    <section class="hero">
+      <p class="eyebrow">A Hosaena gift across the distance</p>
+      <p class="holiday-mark">Hosaena 2026</p>
+      <h1>For My Sister,<br>Nitsy</h1>
+      <p class="lead">
+        On these holy Hosaena days, I wanted to make you something gentle, beautiful, and full of blessing.
+        Even while you are in Italy, may this page carry the warmth of home, the peace of faith, and the love
+        of your family straight to your heart.
+      </p>
+      <button class="reveal-button" id="revealButton" type="button">Open Your Hosaena Blessing</button>
+    </section>
+
+    <section class="palm-altar" aria-label="Hosaena palms and light">
+      <div class="sun-disc"></div>
+      <div class="cross cross-left"></div>
+      <div class="cross cross-right"></div>
+      <div class="palm palm-left">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="palm palm-right">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="altar-text">
+        <p class="altar-label">Hosaena</p>
+        <strong>Blessing, peace, and a joyful road ahead</strong>
+      </div>
+    </section>
+
+    <section class="blessing-grid" aria-label="Hosaena wishes">
+      <article class="blessing-card">
+        <p class="card-label">My prayer for you</p>
+        <strong>May God cover your path with peace</strong>
+        <span>In your work, your rest, your steps, and your return.</span>
+      </article>
+      <article class="blessing-card">
+        <p class="card-label">What Hosaena means today</p>
+        <strong>A season of hope and open hearts</strong>
+        <span>A reminder that light still enters quietly and beautifully.</span>
+      </article>
+      <article class="blessing-card">
+        <p class="card-label">What you mean to me</p>
+        <strong>A sister I cherish with pride</strong>
+        <span>Near or far, you remain one of the brightest parts of home.</span>
+      </article>
+    </section>
+
+    <section class="letter-panel" id="loveLetter">
+      <p class="letter-intro">A message from your brother</p>
+      <p>
+        Nitsy, this Hosaena I celebrate you with a full heart. I thank God for your life, your strength,
+        and the grace you carry wherever you go.
+      </p>
+      <p>
+        You have spent years building your life in Italy, yet you still belong deeply to us, to home, and to
+        every prayer spoken for you with love. Distance can change the map, but it cannot change the bond of
+        a sister who is loved and remembered every day.
+      </p>
+      <p>
+        As palm branches welcome a holy and peaceful season, I pray that your days will also be welcomed by
+        calm, favor, protection, and joy. May this Hosaena bring you renewed courage, a rested heart, and
+        beautiful news in the days ahead.
+      </p>
+      <p>
+        When you look at this gift, I want you to feel one thing clearly: you are treasured. Not only today,
+        but always.
+      </p>
+      <p class="signature">
+        With love and blessing,<br>
+        Your brother Tewodros
+      </p>
+    </section>
+
+    <section class="memory-gallery" aria-label="Photo memories">
+      <div class="memory-card">
+        <img src="{% static 'love/photos/photo-1.jpg' %}?v={{ asset_version }}" data-fallback="{% static 'love/photos/photo-1.svg' %}?v={{ asset_version }}" alt="A cherished photo memory for Nitsty" loading="lazy">
+        <div class="memory-caption">A piece of home</div>
+      </div>
+      <div class="memory-card">
+        <img src="{% static 'love/photos/photo-2.jpg' %}?v={{ asset_version }}" data-fallback="{% static 'love/photos/photo-2.svg' %}?v={{ asset_version }}" alt="A joyful memory for Nitsty" loading="lazy">
+        <div class="memory-caption">A smile worth keeping forever</div>
+      </div>
+      <div class="memory-card">
+        <img src="{% static 'love/photos/photo-3.jpg' %}?v={{ asset_version }}" data-fallback="{% static 'love/photos/photo-3.svg' %}?v={{ asset_version }}" alt="A family memory for Nitsty" loading="lazy">
+        <div class="memory-caption">Love that reaches across countries</div>
+      </div>
+    </section>
+
+    <section class="music-note">
+      <p>Quiet moment</p>
+      <strong id="musicMessage">Use this page like a small Hosaena card: scroll slowly, breathe, and let it feel like home.</strong>
+    </section>
+
+    <section class="promise-strip">
+      <div class="promise">
+        <span>For your heart</span>
+        <strong>Peace that stays</strong>
+      </div>
+      <div class="promise">
+        <span>For your path</span>
+        <strong>Grace in every step</strong>
+      </div>
+      <div class="promise">
+        <span>For this season</span>
+        <strong>A blessed Hosaena</strong>
+      </div>
+    </section>
+  </main>
+
+  <div class="blessing-burst" id="blessingBurst" aria-hidden="true"></div>
+  <script src="{% static 'love/script.js' %}"></script>
+</body>
+</html>
