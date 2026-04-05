@@ -4,8 +4,8 @@
     "builder": "RAILPACK"
   },
   "deploy": {
-    "startCommand": "gunicorn core.wsgi --bind 0.0.0.0:$PORT",
-    "preDeployCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput",
+    "startCommand": "python manage.py collectstatic --noinput && gunicorn core.wsgi --bind 0.0.0.0:$PORT",
+    "preDeployCommand": "python manage.py migrate --noinput",
     "healthcheckPath": "/healthz",
     "healthcheckTimeout": 120,
     "restartPolicyType": "ON_FAILURE",

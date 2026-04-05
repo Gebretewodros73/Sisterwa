@@ -58,7 +58,7 @@ RAILWAY_ENVIRONMENT = os.getenv('RAILWAY_ENVIRONMENT')
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-19e!^^h3yq880#k)ke5v=zf5f3i4m3*$#+y2%ckmf^i-mh%&4(')
 DEBUG = env_flag('DEBUG', default=not bool(RAILWAY_ENVIRONMENT))
 
-allowed_hosts = ['127.0.0.1', 'localhost', '.up.railway.app']
+allowed_hosts = ['127.0.0.1', 'localhost', '.up.railway.app', '.railway.app', '.railway.internal']
 
 for env_name in ('RAILWAY_PUBLIC_DOMAIN', 'RAILWAY_STATIC_URL', 'PUBLIC_URL', 'APP_URL'):
     env_value = os.getenv(env_name, '').strip()
@@ -77,6 +77,9 @@ if extra_hosts:
     allowed_hosts.extend(host.strip() for host in extra_hosts.split(',') if host.strip())
 
 ALLOWED_HOSTS = list(dict.fromkeys(allowed_hosts))
+
+if RAILWAY_ENVIRONMENT:
+    ALLOWED_HOSTS = ['*']
 
 csrf_origins = os.getenv('CSRF_TRUSTED_ORIGINS', '')
 CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins.split(',') if origin.strip()]
@@ -176,6 +179,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+if RAILWAY_ENVIRONMENT:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
